@@ -1,0 +1,209 @@
+﻿schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
+}
+
+type Mutation {
+  createAgent(input: CreateAgentInput!): agent
+  deleteAgent(input: DeleteAgentInput!): agent
+  updateAgent(input: UpdateAgentInput!): agent
+}
+
+type Query {
+  getAgent(id: ID!): agent
+  listAgents(filter: TableAgentFilterInput, limit: Int, nextToken: String): agentConnection
+}
+
+type Subscription {
+  onCreateAgent(first_name: String, full_name: String, id: ID, last_name: String, username: String): agent @aws_subscribe(mutations : ["createAgent"])
+  onDeleteAgent(first_name: String, full_name: String, id: ID, last_name: String, username: String): agent @aws_subscribe(mutations : ["deleteAgent"])
+  onUpdateAgent(first_name: String, full_name: String, id: ID, last_name: String, username: String): agent @aws_subscribe(mutations : ["updateAgent"])
+}
+
+type agent {
+  bilingual: Boolean
+  current_quartile: String
+  current_region: String
+  department: String
+  email: String
+  employee_id: String
+  enhanced_lead_tier: String
+  first_name: String
+  full_name: String
+  group_id: String
+  hire_date: String
+  id: ID!
+  language: [String]
+  last_name: String
+  lastname_firstname: String
+  lead_source: [String]
+  licensed_state: [String]
+  location: String
+  mobile_phone: String
+  nice_agent_id: String
+  other_phone: String
+  position: String
+  preferred_name: String
+  status: String
+  team: String
+  username: String
+  velocify_agent_id: String
+  work_phone: String
+}
+
+type agentConnection {
+  items: [agent]
+  nextToken: String
+}
+
+input CreateAgentInput {
+  bilingual: Boolean
+  current_quartile: String
+  current_region: String
+  department: String
+  email: String
+  employee_id: String
+  enhanced_lead_tier: String
+  first_name: String
+  full_name: String
+  group_id: String
+  hire_date: String
+  language: [String]
+  last_name: String
+  lastname_firstname: String
+  lead_source: [String]
+  licensed_state: [String]
+  location: String
+  mobile_phone: String
+  nice_agent_id: String
+  other_phone: String
+  position: String
+  preferred_name: String
+  status: String
+  team: String
+  username: String
+  velocify_agent_id: String
+  work_phone: String
+}
+
+input DeleteAgentInput {
+  id: ID!
+}
+
+input TableAgentFilterInput {
+  bilingual: TableIDFilterInput
+  current_quartile: TableIDFilterInput
+  current_region: TableIDFilterInput
+  department: TableIDFilterInput
+  email: TableIDFilterInput
+  employee_id: TableIDFilterInput
+  enhanced_lead_tier: TableIDFilterInput
+  first_name: TableIDFilterInput
+  full_name: TableIDFilterInput
+  group_id: TableIDFilterInput
+  hire_date: TableIDFilterInput
+  id: TableIDFilterInput
+  language: TableIDFilterInput
+  last_name: TableIDFilterInput
+  lastname_firstname: TableIDFilterInput
+  lead_source: TableIDFilterInput
+  licensed_state: TableIDFilterInput
+  location: TableIDFilterInput
+  mobile_phone: TableIDFilterInput
+  nice_agent_id: TableIDFilterInput
+  other_phone: TableIDFilterInput
+  position: TableIDFilterInput
+  preferred_name: TableIDFilterInput
+  status: TableIDFilterInput
+  team: TableIDFilterInput
+  username: TableIDFilterInput
+  velocify_agent_id: TableIDFilterInput
+  work_phone: TableIDFilterInput
+}
+
+input TableBooleanFilterInput {
+  eq: Boolean
+  ne: Boolean
+}
+
+input TableFloatFilterInput {
+  between: [Float]
+  contains: Float
+  eq: Float
+  ge: Float
+  gt: Float
+  le: Float
+  lt: Float
+  ne: Float
+  notContains: Float
+}
+
+input TableIDFilterInput {
+  beginsWith: ID
+  between: [ID]
+  contains: ID
+  eq: ID
+  ge: ID
+  gt: ID
+  le: ID
+  lt: ID
+  ne: ID
+  notContains: ID
+}
+
+input TableIntFilterInput {
+  between: [Int]
+  contains: Int
+  eq: Int
+  ge: Int
+  gt: Int
+  le: Int
+  lt: Int
+  ne: Int
+  notContains: Int
+}
+
+input TableStringFilterInput {
+  beginsWith: String
+  between: [String]
+  contains: String
+  eq: String
+  ge: String
+  gt: String
+  le: String
+  lt: String
+  ne: String
+  notContains: String
+}
+
+input UpdateAgentInput {
+  bilingual: Boolean
+  current_quartile: String
+  current_region: String
+  department: String
+  email: String
+  employee_id: String
+  enhanced_lead_tier: String
+  first_name: String
+  full_name: String
+  group_id: String
+  hire_date: String
+  id: ID!
+  language: [String]
+  last_name: String
+  lastname_firstname: String
+  lead_source: [String]
+  licensed_state: [String]
+  location: String
+  mobile_phone: String
+  nice_agent_id: String
+  other_phone: String
+  position: String
+  preferred_name: String
+  status: String
+  team: String
+  username: String
+  velocify_agent_id: String
+  work_phone: String
+}
