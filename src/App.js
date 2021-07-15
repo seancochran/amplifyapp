@@ -1,7 +1,9 @@
 import React from 'react'
+import logo from './logo.svg';
 import styled from 'styled-components'
 import { useTable } from 'react-table'
-
+import './App.css';
+import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
 import makeData from './makeData'
 
 const Styles = styled.div`
@@ -124,4 +126,16 @@ function App() {
   )
 }
 
-export default App
+function Auth() {
+  return (
+    <div className="Auth">
+      <header>
+        <img src={logo} className="App-logo" alt="logo" />
+        <h1>We now have Auth!</h1>
+      </header>
+      <AmplifySignOut />
+    </div>
+  );
+}
+
+export default withAuthenticator(Auth);
