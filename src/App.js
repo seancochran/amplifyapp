@@ -127,7 +127,7 @@ function App() {
 }
 
 function Auth() {
-  //Authentication
+  //Authentication 
   return (
     <div className="Auth">
       <header>
