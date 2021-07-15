@@ -14,6 +14,15 @@
     "categories": {
       "auth": {
         "amplifyapp5a30aa1d": {}
+      },
+      "storage": {
+        "agentTable": {
+          "tableName": "agentTable",
+          "region": "us-east-1",
+          "arn": "arn:aws:dynamodb:us-east-1:929870504085:table/agentTable",
+          "partitionKeyName": "id",
+          "partitionKeyType": "S"
+        }
       }
     }
   }

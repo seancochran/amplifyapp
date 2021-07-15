@@ -7,7 +7,14 @@
       "customAuth": false
     }
   },
-  "storage": {},
+  "storage": {
+    "agentTable": {
+      "service": "DynamoDB",
+      "serviceType": "imported",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": []
+    }
+  },
   "api": {
     "amplifyapp": {
       "service": "AppSync",
