@@ -1,4 +1,5 @@
 import namor from 'namor'
+//comment
 
 const range = len => {
   const arr = []
