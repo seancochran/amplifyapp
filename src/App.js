@@ -139,4 +139,4 @@ function Auth() {
   );
 }
 
-export default withAuthenticator(Auth);
+export default App
